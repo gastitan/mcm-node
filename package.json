@@ -1,0 +1,23 @@
+{
+  "name": "mcm",
+  "version": "0.1.0",
+  "description": "mcm",
+  "main": "firstApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "eclipse",
+    "nodeclipse"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.1",
+    "nodemon": "^1.18.11"
+  }
+}
