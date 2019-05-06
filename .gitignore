@@ -64,3 +64,6 @@ typings/
 .project
 .settings/
 .sublime-project
+.gradle/
+.tern-project
+build/
