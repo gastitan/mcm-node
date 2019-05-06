@@ -4,6 +4,7 @@
   "description": "mcm",
   "main": "firstApp.js",
   "scripts": {
+    "start": "node firstApp.js",
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
   "keywords": [
