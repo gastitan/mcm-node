@@ -3,8 +3,12 @@ const authApi = require('./routes/auth');
 const productApi = require('./routes/products');
 const userApi = require('./routes/users');
 const bodyParser = require('body-parser');
+const static_data = require('./static/static_data.json');
 
 const app = express();
+app.set('view engine', 'pug');
+app.set('views', './views');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -31,4 +35,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var server = app.listen(process.env.PORT || 3000, function () {
   var port = server.address().port
   console.log('App now running on port', port)
+})
+
+app.get('/', function (req, res) {
+  res.render('index', static_data)
 })
