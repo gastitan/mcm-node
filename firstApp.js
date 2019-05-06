@@ -27,4 +27,8 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.listen(3000, () => console.log('Starting at port 3000...'));
+// Initialize the app.
+var server = app.listen(process.env.PORT || 3000, function () {
+  var port = server.address().port
+  console.log('App now running on port', port)
+})
