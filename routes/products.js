@@ -5,14 +5,18 @@ const Product = require('../model/products');
 const router = express.Router();
 
 router.get('/products/', (req,res) => {
-	Product.find({}, function(err, result) {
+    var query = req.query;
+    console.log(query);
+    //console.log(JSON.stringify(query))
+	Product.find(query, function(err, result) {
         if (err) throw err;
-        else res.send(result);
+        else{
+            res.send(result);
+        }
     });
 });
 
 router.get('/products/:id', (req,res) => {
-    console.log(req.params.id);
     Product.findById(req.params.id, function (err, result) {
         if (err) throw err;
         else res.send(result);
@@ -22,7 +26,6 @@ router.get('/products/:id', (req,res) => {
 
 //router.post('/', products_controller.product_create);
 router.post('/products/', (req,res) => {
-    console.log(req.body);
     let product = new Product(
         {
             name: req.body.name,
@@ -50,8 +53,6 @@ router.put('/products/:id', function (req, res) {
         if (err) {
             res.send(err)
         }
-        console.log(product);
-        console.log(req.body);
         product.name = req.body.name
         product.description = req.body.description
         product.productCategory = req.body.productCategory
@@ -59,6 +60,7 @@ router.put('/products/:id', function (req, res) {
         product.productImage = req.body.productImage
         product.productSeller = req.body.productSeller
         product.productRating = req.body.productRating
+        product.isFeatured = req.body.isFeatured
         // save the bear
         product.save(function (err, data) {
             if (err) {

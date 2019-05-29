@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('debug', true);
 const Schema = mongoose.Schema;
 
 let ProductSchema = new Schema({
@@ -8,9 +9,7 @@ let ProductSchema = new Schema({
     productCategory: {type: String, required:true},
     productImage: String,
     productSeller: String,
-    isBestProduct: Boolean,
-    isTopProduct: Boolean,
-    productRating: Number
+    isFeatured: Boolean
 });
 
 // Export the model

@@ -5,7 +5,8 @@
   "main": "firstApp.js",
   "scripts": {
     "start": "node firstApp.js",
-    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1",
+    "local": "nodemon firstApp.js"
   },
   "keywords": [
     "node.js",
@@ -15,6 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "joi": "^14.3.1",
     "mongodb": "^3.2.3",

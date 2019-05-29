@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const authApi = require('./routes/auth');
 const productApi = require('./routes/products');
 const userApi = require('./routes/users');
@@ -11,14 +12,10 @@ app.set('views', './views');
 
 
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  next();
-});
+app.use(cors());
 
 app.use('/api', [authApi,productApi,userApi]);
 
