@@ -37,13 +37,14 @@ router.post('/payment/',(req, res) => {
 	  console.log(error);
 	  res.send("error")
 	});
-	//res.redirect("http://localhost:8080/#/thankyou");
+	res.redirect("http://localhost:8080/#/thankyou");
 	
 	//console.log(mercadopago.payment);
-	res.send("OK");
+	//res.send("OK");
 });
 
 router.post('/payment/notification', (req,res) => {
+	console.log("Notification entry");
 	console.log(req.body);
 	res.send("OK");
 })
