@@ -43,7 +43,7 @@ router.post('/payment/',(req, res) => {
 	res.send("OK");
 });
 
-router.post('payment/notification', (req,res) => {
+router.post('/payment/notification', (req,res) => {
 	console.log(req.body);
 	res.send("OK");
 })
