@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 var mercadopago = require('mercadopago')
 
+const { clientServer } = require('../config');
+
 router.post('/payment/',(req, res) => {
 	console.log("Te entra el pago");
 	console.log(req.body);
@@ -37,7 +39,7 @@ router.post('/payment/',(req, res) => {
 	  console.log(error);
 	  res.send("error")
 	});
-	res.redirect("http://localhost:8080/#/thankyou");
+	res.redirect(clientServer+"/thankyou");
 	
 	//console.log(mercadopago.payment);
 	//res.send("OK");
@@ -45,7 +47,7 @@ router.post('/payment/',(req, res) => {
 
 router.post('/payment/notification', (req,res) => {
 	console.log("Notification entry");
-	console.log(req.body);
+	console.log(process.env.PORT);
 	res.send("OK");
 })
 
