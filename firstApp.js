@@ -4,6 +4,7 @@ const authApi = require('./routes/auth');
 const productApi = require('./routes/products');
 const mailApi = require('./routes/mails');
 const userApi = require('./routes/users');
+const paymentApi = require('./routes/payment');
 const bodyParser = require('body-parser');
 const static_data = require('./static/static_data.json');
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(cors());
 
-app.use('/api', [authApi,productApi,userApi,mailApi]);
+app.use('/api', [authApi,productApi,userApi,mailApi,paymentApi]);
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
